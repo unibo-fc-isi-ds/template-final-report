@@ -70,10 +70,14 @@ What's the abstraction gap among the available models / paradigms / technologies
 
 This is where the logical / abstract contribution of the project is presented.
 
-Notice that, when describing a software project, three dimensions need to be taken into account: structure, behaviour, and interaction.
+Notice that, when describing a software project, three dimensions need to be taken into account: \emph{structure}, \emph{behaviour}, and \emph{interaction}.
 
 Always remember to report \textbf{why} a particular design has been chosen.
-Reporting wrong design choices which has been evalued during the design phase is welcome too.
+%
+Reporting wrong design choices which has been revalued during the design phase is welcome too.
+
+Do not insert any implementation details in this section!
+%
 
 \subsection{Structure}\label{subsec:structure}
 
@@ -97,13 +101,23 @@ How should entities interact with each other?
 %
 (UML Sequence Diagram)
 
+You can use \href{https://plantuml.com/}{PlantUML} to draw UML diagrams.
+%
+You can then download the diagrams as \emph{vector} images and include them in your \LaTeX{} document.
+
 \section{Implementation Details}\label{sec:implementation-details}
 
 Just report interesting / non-trivial / non-obvious implementation details.
 
-This section is expected to be short in case some documentation (e.g. Javadoc or Swagger Spec) has been produced for the software artefacts.
+This section is expected to be short in case some documentation (e.g., Javadoc or Swagger Spec) has been produced for the software artefacts.
 %
 This case, the produced documentation should be referenced here.
+
+\section{Corner cases and Faults}\label{sec:corner-cases-and-faults}
+
+Describe here the corner cases and faults you have identified in the project requirements and design.
+%
+Describe if and how you have addressed them.
 
 \section{Self-assessment / Validation}\label{sec:self-assessment-/-validation}
 
@@ -117,7 +131,7 @@ In case of a test-driven development, describe tests here and possibly report th
 
 Explain here how to install and launch the produced software artefacts.
 %
-Assume the softaware must be installed on a totally virgin environment.
+Assume the software must be installed on a totally virgin environment.
 %
 So, report \textbf{any} configuration step.
 
