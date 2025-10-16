@@ -9,8 +9,10 @@
 \newcommand{\emailaddr}[1]{\href{mailto:#1}{\texttt{#1}}}
 
 \title{\LARGE
-    Final Report Template
+    Final Report Template\\
+    (replace with your project name)
 }
+\subtitle{Final Report for the Distributed Systems Course [Your academic year here]}
 
 % Consider watching:
 % https://www.youtube.com/watch?v=ihxSUsJB_14
@@ -24,7 +26,7 @@
     Author 3 \\ \emailaddr{author3@unibo.it}
 }
 
-\date{January 2019}
+\date{\today}
 
 \begin{document}
 
@@ -69,13 +71,13 @@ A complete example is shown in \cref{fig:universe}.
     \label{fig:universe}
 \end{figure}
 
-Do not put any placement constraint on figures,
+Do \textbf{not} put any placement constraint on figures,
 such as \texttt{[h]} or \texttt{[h!]}.
 %
 Same considerations apply for other floating elements 
 (e.g. tables, algorithms, listings, etc.).
 
-Do not use the \texttt{\textbackslash\textbackslash} or \texttt{\textbackslash newline} commands to break lines.
+Do \textbf{not} use the \texttt{\textbackslash\textbackslash} or \texttt{\textbackslash newline} commands to break lines.
 
 Just leave an empty line between two paragraphs to start a new one.
 %
@@ -88,84 +90,160 @@ This is intended: it is the \LaTeX{} way to separate capoverses.
 Here you should explain:
 
 \begin{itemize}
-  \item The type of product developed with that project, for example
-  (non-exhaustive):
-
+  \item The type of product developed with that project, for example (non-exhaustive):
+  %
   \begin{itemize}
     \item Application (with GUI, be it mobile, web, or desktop)
     \item Command-line application (CLI could be used by humans or scripts)
     \item Library
     \item Web-service(s)
   \end{itemize}
-  \item Use case collection
 
+  \item Use case description:
+  %
   \begin{itemize}
+    \item \emph{what} is the software doing?
     \item \emph{where} are the users?
-    \item \emph{when} and \emph{how frequently} do they interact with the
-    system?
-    \item \emph{how} do they \emph{interact} with the system? which
-    \emph{devices} are they using?
-    \item does the system need to \emph{store} user's \textbf{data}?
-    \emph{which}? \emph{where}?
+    \item \emph{when} and \emph{how frequently} do they interact with the system?
+    \item \emph{how} do they \emph{interact} with the system? which \emph{devices} are they using?
+    \item does the system need to \emph{store} user's \textbf{data}? \emph{which}? \emph{where}?
     \item most likely, there will be \emph{multiple} \textbf{roles}
   \end{itemize}
+
+  \item Why is distribution needed?
+  %
+  \begin{itemize}
+    \item geographically distributed environments?
+    \item computation speedup?
+    \item resource sharing?
+    \item fault tolerance?
+    \item other reasons?
+  \end{itemize}
+  %
+  In any case, please elaborate.
 \end{itemize}
 
-\section{Requirements}\label{requirements}
+\section{Requirements Elicitation and Analysis}\label{requirements}
 
 \begin{itemize}
   \item The requirements must explain \textbf{what} (not how) the software
   being produced should do.
-
+  %
   \begin{itemize}
     \item you should not focus on the particular problems, but exclusively on
     what you want the application to do.
   \end{itemize}
+
   \item Requirements must be clearly identified, and possibly numbered
+
   \item Requirements are divided into:
-
+  %
   \begin{itemize}
-    \item \textbf{Functional}: some functionality the software should provide
-    to the user
-    \item \textbf{Non-functional}: requirements that do not directly concern
-    behavioural aspects, such as consistency, availability, etc.
-    \item \textbf{Implementation}: constrain the entire phase of system
-    realization, for instance by requiring the use of a specific
-    programming language and/or a specific software tool
+    \item \textbf{Functional}: some functionality the software should provide to the user
 
+    \item \textbf{Non-functional}: requirements that do not directly concern behavioural aspects, such as consistency, availability, etc.
+
+    \item \textbf{Implementation}: constrain the entire phase of system realization, 
+    for instance by requiring the use of a specific programming language and/or a specific software tool
+    %
     \begin{itemize}
-      \item these constraints should be adequately justified by political /
-      economic / administrative reasons\ldots{}
-      \item \ldots{} otherwise, implementation choices should emerge \emph{as
-      a consequence of} design
+      \item these constraints should be adequately justified by political / economic / administrative reasons\ldots{}
+      \item \ldots{} otherwise, implementation choices should emerge \emph{as  a consequence of} design
     \end{itemize}
   \end{itemize}
-  \item If there are domain-specific terms, these should be explained in a
-  glossary
-  \item Each requirement must have its own \textbf{acceptance criteria}
 
+  \item If there are domain-specific terms, these should be explained in a glossary
+  
+  \item Each requirement must have its own \textbf{acceptance criterion}
+  %
   \begin{itemize}
     \item these will be important for the validation phase
   \end{itemize}
 \end{itemize}
 
+\subsection{Relevant Distributed System Features}
+\label{ds-features}
+
+Motivate which distributed system features are relevant for your project, and which are not.
+%
+\begin{itemize}
+  \item transparency
+  \begin{itemize}
+    \item does your system need to hide distribution details from users or developers?
+    \item is it important that failures, location, or replication are invisible?
+  \end{itemize}
+
+  \item fault tolerance, dependability -- availability, reliability, integrity, maintainability, safety
+  \begin{itemize}
+    \item what happens if a component fails? is uninterrupted service required?
+    \item is data loss or corruption unacceptable?
+    \item how quickly must the system recover from faults?
+  \end{itemize}
+
+  \item scalability
+  \begin{itemize}
+    \item will the system need to handle increasing numbers of users, requests, or data?
+    \item is it expected to grow over time?
+  \end{itemize}
+
+  \item security, trust
+  \begin{itemize}
+    \item is sensitive data being processed or stored?
+    \item are there multiple user roles with different permissions?
+    \item is authentication or authorization required?
+  \end{itemize}
+
+  \item resource sharing
+  \begin{itemize}
+    \item do multiple users or components need access to shared resources?
+    \item is coordination or synchronization needed?
+  \end{itemize}
+
+  \item openness, interoperability, heterogeneity of components
+  \begin{itemize}
+    \item Will your system interact with external systems or use components built with different technologies?
+    \item Is standardization or compatibility important?
+  \end{itemize}
+
+  \item evolvability, maintainability
+  \begin{itemize}
+    \item Will the system need to be updated or extended after deployment?
+    \item Is long-term maintenance a concern?
+  \end{itemize}
+
+  \item performance, concurrency, computation / communication efficiency, bandwidth
+  \begin{itemize}
+    \item Are there strict requirements on response time or throughput?
+    \item Will many operations happen in parallel?
+    \item Is network usage a concern?
+  \end{itemize}
+
+  \item economy, costs  
+  \begin{itemize}
+    \item Are there budget constraints for development, deployment, or operation?
+    \item Is minimizing resource usage important?
+  \end{itemize}
+\end{itemize}
+
 \section{Design}\label{design}
 
-This chapter explains the strategies used to meet the requirements
-identified in the analysis. Ideally, the design should be the same,
-regardless of the technological choices made during the implementation
-phase.
+This chapter explains the strategies used to meet the requirements identified in the analysis. 
+%
+Ideally, the design should be the same, regardless of the technological choices made during the implementation phase.
 
 \begin{quote}
-You can re-order the sections as you prefer, but all the sections must
-be present in the end
+You can re-arrange the sections as you prefer, but all the sections must be present in the end
 \end{quote}
+
+\noindent
+\textbf{Important:} try to motivate your design choices in relation to the requirements and features identified 
+in \cref{requirements} and \cref{ds-features}.
 
 \subsection{Architecture}\label{architecture}
 
 \begin{itemize}
   \item Which architectural style?
-
+  %
   \begin{itemize}
     \item why?
   \end{itemize}
@@ -174,24 +252,25 @@ be present in the end
 \subsection{Infrastructure}\label{infrastructure}
 
 \begin{itemize}
-  \item are there \emph{infrastructural components} that need to be
-  introduced? \emph{how many}?
-
+  \item are there \emph{infrastructural components} that need to be introduced? \emph{how many}?
+  %
   \begin{itemize}
     \item e.g.~\emph{clients}, \emph{servers}, \emph{load balancers},
     \emph{caches}, \emph{databases}, \emph{message brokers},
     \emph{queues}, \emph{workers}, \emph{proxies}, \emph{firewalls},
     \emph{CDNs}, \emph{etc.}
   \end{itemize}
-  \item how do components \emph{distribute} over the network? \emph{where}?
 
+  \item how do components \emph{distribute} over the network? \emph{where}?
+  %
   \begin{itemize}
     \item e.g.~do servers / brokers / databases / etc. sit on the same
     machine? on the same network? on the same datacenter? on the same
     continent?
   \end{itemize}
-  \item how do components \emph{find} each other?
 
+  \item how do components \emph{find} each other?
+  %
   \begin{itemize}
     \item how to \emph{name} components?
     \item e.g.~DNS, \emph{service discovery}, \emph{load balancing},
@@ -207,31 +286,32 @@ Component diagrams are welcome here
 
 \begin{itemize}
   \item which \textbf{domain entities} are there?
-
+  %
   \begin{itemize}
     \item e.g.~\emph{users}, \emph{products}, \emph{orders}, \emph{etc.}
   \end{itemize}
-  \item how do \emph{domain entities} \textbf{map to} \emph{infrastructural
-  components}?
-
+  
+  \item how do \emph{domain entities} \textbf{map to} \emph{infrastructural components}?
+  %
   \begin{itemize}
-    \item e.g.~state of a video game on central server, while
-    inputs/representations on clients
+    \item e.g.~state of a video game on central server, while inputs/representations on clients
     \item e.g.~where to store messages in an IM app? for how long?
   \end{itemize}
+
   \item which \textbf{domain events} are there?
-
+  %
   \begin{itemize}
-    \item e.g.~\emph{user registered}, \emph{product added to cart},
-    \emph{order placed}, \emph{etc.}
+    \item e.g.~\emph{user registered}, \emph{product added to cart}, \emph{order placed}, \emph{etc.}
   \end{itemize}
+  
   \item which sorts of \textbf{messages} are exchanged?
-
+  %
   \begin{itemize}
     \item e.g.~\emph{commands}, \emph{events}, \emph{queries}, \emph{etc.}
   \end{itemize}
-  \item what information does the \textbf{state} of the system comprehend
 
+  \item what information does the \textbf{state} of the system comprehend
+  %
   \begin{itemize}
     \item e.g.~\emph{users' data}, \emph{products' data}, \emph{orders' data},
     \emph{etc.}
@@ -441,30 +521,6 @@ recall to test corner cases (crashes, errors, etc.)
   \end{itemize}
 \end{itemize}
 
-\section{Release}\label{release}
-
-\begin{itemize}
-  \item how where components organized into \emph{inter-dependant modules} or
-  just a single monolith?
-
-  \begin{itemize}
-    \item provide a \emph{dependency graph} if possible
-  \end{itemize}
-  \item were modules distributed as a \emph{single archive} or \emph{multiple
-  ones}?
-
-  \begin{itemize}
-    \item why?
-  \end{itemize}
-  \item how were archive versioned?
-  \item were archive \emph{released} onto some archive repository (e.g.~Maven,
-  PyPI, npm, etc.)?
-
-  \begin{itemize}
-    \item how to \emph{install} them?
-  \end{itemize}
-\end{itemize}
-
 \section{Deployment}\label{deployment}
 
 \begin{itemize}
@@ -474,6 +530,13 @@ recall to test corner cases (crashes, errors, etc.)
     \item provide instructions
     \item provide expected outcomes
   \end{itemize}
+
+  \item what software should be installed on the machines to run your project? which versions?
+  
+  \item should one set environment variables or configuration files?
+  
+  \item if you're using containerization (e.g.~Docker), 
+  describe how you engineered your deployment scrips (e.g. \texttt{docker-compose.yml} files)
 \end{itemize}
 
 \section{User Guide}\label{user-guide}
@@ -492,14 +555,11 @@ recall to test corner cases (crashes, errors, etc.)
 
 \begin{itemize}
   \item An individual section is required for each member of the group
-  \item Each member must self-evaluate their work, listing the strengths and
-  weaknesses of the product
-  \item Each member must describe their role within the group as objectively
-  as possible.
+  \item Each member must self-evaluate their work, listing the strengths and weaknesses of the product
+  \item Each member must describe their role within the group as objectively as possible.
 \end{itemize}
 
-It should be noted that each student is only responsible for their own
-section
+It should be noted that each student is only responsible for their own section.
 
 \bibliographystyle{plain}
 \bibliography{references}
