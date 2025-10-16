@@ -313,8 +313,7 @@ Component diagrams are welcome here
   \item what information does the \textbf{state} of the system comprehend
   %
   \begin{itemize}
-    \item e.g.~\emph{users' data}, \emph{products' data}, \emph{orders' data},
-    \emph{etc.}
+    \item e.g.~\emph{users' data}, \emph{products' data}, \emph{orders' data}, \emph{etc.}
   \end{itemize}
 \end{itemize}
 
@@ -336,43 +335,43 @@ Sequence diagrams are welcome here
 \subsection{Behaviour}\label{behaviour}
 
 \begin{itemize}
-  \item how does \emph{each} component \textbf{behave} individually (e.g.~in
-  \emph{response} to \emph{events} or messages)?
-
+  \item how does \emph{each} component \textbf{behave} individually (e.g.~in \emph{response} to \emph{events} or messages)?
   \begin{itemize}
     \item some components may be \emph{stateful}, others \emph{stateless}
   \end{itemize}
-  \item which components are in charge of updating the \textbf{state} of the
-  system? \emph{when}? \emph{how}?
+
+  \item which components are in charge of updating the \textbf{state} of the system? \emph{when}? \emph{how}?
 \end{itemize}
 
 \begin{quote}
 State diagrams are welcome here
 \end{quote}
 
-\subsection{Data and Consistency
-Issues}\label{data-and-consistency-issues}
+\subsection{Data and Consistency Issues}\label{data-and-consistency-issues}
 
 \begin{itemize}
   \item Is there any data that needs to be stored?
-
+  %
   \begin{itemize}
     \item \emph{what} data? \emph{where}? \emph{why}?
   \end{itemize}
+  
   \item how should \emph{persistent data} be \textbf{stored}?
-
+  %
   \begin{itemize}
     \item e.g.~relations, documents, key-value, graph, etc.
     \item why?
   \end{itemize}
+  
   \item Which components perform queries on the database?
-
+  %
   \begin{itemize}
     \item \emph{when}? \emph{which} queries? \emph{why}?
     \item concurrent read? concurrent write? why?
   \end{itemize}
+  
   \item Is there any data that needs to be shared between components?
-
+  %
   \begin{itemize}
     \item \emph{why}? \emph{what} data?
   \end{itemize}
@@ -382,18 +381,19 @@ Issues}\label{data-and-consistency-issues}
 
 \begin{itemize}
   \item Is there any form of data \textbf{replication} / federation / sharing?
-
+  %
   \begin{itemize}
     \item \emph{why}? \emph{how} does it work?
   \end{itemize}
-  \item Is there any \textbf{heart-beating}, \textbf{timeout}, \textbf{retry
-  mechanism}?
-
+  
+  \item Is there any \textbf{heart-beating}, \textbf{timeout}, \textbf{retry mechanism}?
+  %
   \begin{itemize}
     \item \emph{why}? \emph{among} which components? \emph{how} does it work?
   \end{itemize}
+  
   \item Is there any form of \textbf{error handling}?
-
+  %
   \begin{itemize}
     \item \emph{what} happens when a component fails? \emph{why}? \emph{how}?
   \end{itemize}
@@ -403,17 +403,19 @@ Issues}\label{data-and-consistency-issues}
 
 \begin{itemize}
   \item Is there any \textbf{caching} mechanism?
-
+  %
   \begin{itemize}
     \item \emph{where}? \emph{why}?
   \end{itemize}
+  
   \item Is there any form of \textbf{load balancing}?
-
+  %
   \begin{itemize}
     \item \emph{where}? \emph{why}?
   \end{itemize}
-  \item In case of \textbf{network partitioning}, how does the system behave?
 
+  \item In case of \textbf{network partitioning}, how does the system behave?
+  %
   \begin{itemize}
     \item \emph{why}? \emph{how}?
   \end{itemize}
@@ -423,18 +425,20 @@ Issues}\label{data-and-consistency-issues}
 
 \begin{itemize}
   \item Is there any form of \textbf{authentication}?
-
+  %
   \begin{itemize}
     \item \emph{where}? \emph{why}?
   \end{itemize}
-  \item Is there any form of \textbf{authorization}?
 
+  \item Is there any form of \textbf{authorization}?
+  %
   \begin{itemize}
     \item which sort of \emph{access control}?
     \item which sorts of users / \emph{roles}? which \emph{access rights}?
   \end{itemize}
-  \item Are \textbf{cryptographic schemas} being used?
 
+  \item Are \textbf{cryptographic schemas} being used?
+  %
   \begin{itemize}
     \item e.g.~token verification,
     \item e.g.~data encryption, etc.
@@ -443,29 +447,42 @@ Issues}\label{data-and-consistency-issues}
 
 \section{Implementation}\label{implementation}
 
+Please report here all the implementation (technology-dependent) choices you made while implementing your design.
+
+\begin{quote}
+  If you run out of time for this project, you may consider leaving some aspect unimplemented, 
+  and simply discuss how you would have implemented them.
+  %
+  In this case, better would be to discuss unimplemented features in \cref{future-works}.
+\end{quote}
+
 \begin{itemize}
   \item which \textbf{network protocols} to use?
-
+  %
   \begin{itemize}
     \item e.g.~UDP, TCP, HTTP, WebSockets, gRPC, XMPP, AMQP, MQTT, etc.
   \end{itemize}
+  
   \item how should \emph{in-transit data} be \textbf{represented}?
-
+  %
   \begin{itemize}
     \item e.g.~JSON, XML, YAML, Protocol Buffers, etc.
   \end{itemize}
+  
   \item how should \emph{databases} be \textbf{queried}?
-
+  %
   \begin{itemize}
     \item e.g.~SQL, NoSQL, etc.
   \end{itemize}
+  
   \item how should components be \emph{authenticated}?
-
+  %
   \begin{itemize}
     \item e.g.~OAuth, JWT, etc.
   \end{itemize}
-  \item how should components be \emph{authorized}?
 
+  \item how should components be \emph{authorized}?
+  %
   \begin{itemize}
     \item e.g.~RBAC, ABAC, etc.
   \end{itemize}
@@ -474,8 +491,7 @@ Issues}\label{data-and-consistency-issues}
 \subsection{Technological details}\label{technological-details}
 
 \begin{itemize}
-  \item any particular \emph{framework} / \emph{technology} being exploited
-  goes here
+  \item any particular \emph{framework} / \emph{technology} being exploited goes here
 \end{itemize}
 
 \section{Validation}\label{validation}
@@ -484,15 +500,17 @@ Issues}\label{data-and-consistency-issues}
 
 \begin{itemize}
   \item how were individual components \textbf{\emph{unit}-test}ed?
-  \item how was communication, interaction, and/or integration among
-  components tested?
+  
+  \item how was communication, interaction, and/or integration among components tested?
+  
   \item how to \textbf{\emph{end-to-end}-test} the system?
-
+  %
   \begin{itemize}
     \item e.g.~production vs.~test environment
   \end{itemize}
-  \item for each test specify:
 
+  \item for each test specify:
+  %
   \begin{itemize}
     \item rationale of individual tests
     \item how were the test automated
@@ -502,8 +520,7 @@ Issues}\label{data-and-consistency-issues}
 \end{itemize}
 
 \begin{quote}
-recall that \emph{deployment} \textbf{automation} is commonly used to
-\emph{test} the system in \emph{production-like} environment
+recall that \emph{deployment} \textbf{automation} is commonly used to \emph{test} the system in \emph{production-like} environment
 \end{quote}
 
 \begin{quote}
@@ -514,7 +531,7 @@ recall to test corner cases (crashes, errors, etc.)
 
 \begin{itemize}
   \item did you perform any \emph{manual} testing?
-
+  %
   \begin{itemize}
     \item what did you test?
     \item why wasn't it automatic?
@@ -525,7 +542,7 @@ recall to test corner cases (crashes, errors, etc.)
 
 \begin{itemize}
   \item should one install your software from scratch, how to do it?
-
+  %
   \begin{itemize}
     \item provide instructions
     \item provide expected outcomes
@@ -543,7 +560,7 @@ recall to test corner cases (crashes, errors, etc.)
 
 \begin{itemize}
   \item how to use your software?
-
+  %
   \begin{itemize}
     \item provide instructions
     \item provide expected outcomes
@@ -560,6 +577,12 @@ recall to test corner cases (crashes, errors, etc.)
 \end{itemize}
 
 It should be noted that each student is only responsible for their own section.
+
+\section{Future works}\label{future-works}
+
+Discuss possible future works, improvements, extensions, optimizations, etc.
+
+Also discuss here any unimplemented feature, and how you would have implemented it.
 
 \bibliographystyle{plain}
 \bibliography{references}
