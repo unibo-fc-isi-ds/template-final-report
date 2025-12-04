@@ -39,6 +39,6 @@ jobs:
           ruby bibtex_prettifier.rb
 
       - name: Compile and publish all LaTeX
-        uses: DanySK/compile-and-publish-all-latex@2.1.8
+        uses: DanySK/compile-and-publish-all-latex@2.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
